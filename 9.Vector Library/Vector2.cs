@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Vector_Library
 {
-    class Vector2
+    public class Vector2
     {
-        public float m_X;
-        public float m_Y;
+        private float m_X;
+        private float m_Y;
 
         public Vector2(float x, float y)
         {

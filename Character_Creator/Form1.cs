@@ -13,14 +13,12 @@ namespace CharacterCreator
 {
     public partial class Form1 : Form
     {
-        public Dictionary<string, Race> Races = new Dictionary<string, Race>();
-        public Dictionary<string, Job> Jobs = new Dictionary<string, Job>();
         public List<Race> RaceList = new List<Race>()
         {
-            new Human() {Name = "Human" },
-            new Elf() {Name = "Elf" },
-            new Ogre() {Name = "Ogre" },
-            new Dwarf() {Name = "Dwarf" }
+            new Human() {CharacterName = "Human" , Level = 0, ExperiencePoints = 0},
+            new Elf() {CharacterName = "Elf" , Level = 0, ExperiencePoints = 0},
+            new Ogre() {CharacterName = "Ogre" , Level = 0, ExperiencePoints = 0},
+            new Dwarf() {CharacterName = "Dwarf" , Level = 0, ExperiencePoints = 0}
         };
         public List<Job> JobList = new List<Job>()
         {
@@ -42,18 +40,23 @@ namespace CharacterCreator
 
         private void RaceBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            richTextBox1.Text = "";
-            foreach(var race in RaceList)
+            foreach(var item in RaceList)
             {
-                RaceBox.Text = race.Name;
+                if(item.CharacterName == RaceBox.Text)
+                {
+                    richTextBox1.Text = item.ToString();
+                }
             }
         }
 
         private void JobBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach(var job in JobList)
+            foreach (var item in JobList)
             {
-                JobBox.Text = job.Name;
+                if (item.Name == JobBox.Text)
+                {
+                    richTextBox1.Text = item.ToString();
+                }
             }
         }
 
@@ -62,7 +65,13 @@ namespace CharacterCreator
             richTextBox1.Clear();
             foreach(var item in RaceList)
             {
-                Races.Add()
+                RaceBox.Items.Add(item.CharacterName);
+                item.GenCharacter();
+                label5.Text = textBox1.Text;
+            }
+            foreach(var item in JobList)
+            {
+                JobBox.Items.Add(item.Name);
             }
 
         }

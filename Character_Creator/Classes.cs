@@ -28,7 +28,7 @@ namespace CharacterCreator
     {
 
     }
-    public class Job
+    public class Job : Character
     {
         public string Name { get; set; }
         public override string ToString()

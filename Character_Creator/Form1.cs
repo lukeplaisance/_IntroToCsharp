@@ -63,13 +63,13 @@ namespace CharacterCreator
         private void GenCharacter_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
-            foreach(var item in RaceList)
+            foreach (var item in RaceList)
             {
                 RaceBox.Items.Add(item.CharacterName);
                 item.GenCharacter();
                 label5.Text = textBox1.Text;
             }
-            foreach(var item in JobList)
+            foreach (var item in JobList)
             {
                 JobBox.Items.Add(item.Name);
             }

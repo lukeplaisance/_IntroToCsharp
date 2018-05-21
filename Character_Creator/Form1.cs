@@ -13,24 +13,43 @@ namespace CharacterCreator
 {
     public partial class Form1 : Form
     {
-        public List<Race> RaceList = new List<Race>()
-        {
-            new Human() {CharacterName = "Human" , Level = 0, ExperiencePoints = 0},
-            new Elf() {CharacterName = "Elf" , Level = 0, ExperiencePoints = 0},
-            new Ogre() {CharacterName = "Ogre" , Level = 0, ExperiencePoints = 0},
-            new Dwarf() {CharacterName = "Dwarf" , Level = 0, ExperiencePoints = 0}
-        };
-        public List<Job> JobList = new List<Job>()
-        {
-            new Assassin() {Name = "Assassin" },
-            new Knight() {Name = "Knight" },
-            new Mage() {Name = "Mage" },
-            new Healer() {Name = "Healer" },
-            new SharpShooter() {Name = "Sharpshooter" }
-        };
+        Random r = new Random();
+        public List<Race> RaceList = new List<Race>();
+        public List<Job> JobList = new List<Job>();
         public Form1()
         {
+            Random r = new Random();
             InitializeComponent();
+            RaceList = new List<Race>()
+            {
+                new Human() {SavingThrows = new SavingThrows() { Charisma = new Stat("Cha: ", r.Next(1, 11)),
+                    Constitution = new Stat("Const: ", r.Next(1, 11)), Intelligence = new Stat("Int: ", r.Next(1, 11)),
+                    Strength = new Stat("Str: ", r.Next(1,11)), Dexterity = new Stat("Dex: ", r.Next(1, 11)),
+                    Wisdom = new Stat("Wis: ", r.Next(1, 11))}, CharacterName = "Human" , Level = 0, ExperiencePoints = 0},
+
+                new Elf() {SavingThrows = new SavingThrows() { Charisma = new Stat("Cha: ", r.Next(1, 11)),
+                    Constitution = new Stat("Const: ", r.Next(1, 11)), Intelligence = new Stat("Int: ", r.Next(1, 11)),
+                    Strength = new Stat("Str: ", r.Next(1,11)), Dexterity = new Stat("Dex: ", r.Next(1, 11)),
+                    Wisdom = new Stat("Wis: ", r.Next(1, 11))}, CharacterName = "Elf" , Level = 0, ExperiencePoints = 0},
+
+                new Ogre() {SavingThrows = new SavingThrows() { Charisma = new Stat("Cha: ", r.Next(1, 11)),
+                    Constitution = new Stat("Const: ", r.Next(1, 11)), Intelligence = new Stat("Int: ", r.Next(1, 11)),
+                    Strength = new Stat("Str: ", r.Next(1,11)), Dexterity = new Stat("Dex: ", r.Next(1, 11)),
+                    Wisdom = new Stat("Wis: ", r.Next(1, 11))}, CharacterName = "Ogre" , Level = 0, ExperiencePoints = 0},
+
+                new Dwarf() {SavingThrows = new SavingThrows() { Charisma = new Stat("Cha: ", r.Next(1, 11)),
+                    Constitution = new Stat("Const: ", r.Next(1, 11)), Intelligence = new Stat("Int: ", r.Next(1, 11)),
+                    Strength = new Stat("Str: ", r.Next(1,11)), Dexterity = new Stat("Dex: ", r.Next(1, 11)),
+                    Wisdom = new Stat("Wis: ", r.Next(1, 11))}, CharacterName = "Dwarf" , Level = 0, ExperiencePoints = 0}
+            };
+            JobList = new List<Job>()
+            {
+                new Assassin() {Name = "Assassin"},
+                new Knight() {Name = "Knight" },
+                new Mage() {Name = "Mage" },
+                new Healer() {Name = "Healer" },
+                new SharpShooter() {Name = "Sharpshooter" }
+            };
         }
 
         private void Form1_Load(object sender, EventArgs e)

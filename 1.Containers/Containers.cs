@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,9 @@ namespace _1.Containers
     public interface IStat
     {
         string Name { get; set; }
-         int Value { get; set; }
-         string Description { get; set; }
+        int Value { get; set; }
+        string Description { get; set; }
+        string ToString();
     }
     public class Stat : IStat
     {
@@ -28,210 +30,139 @@ namespace _1.Containers
             string data = Name + ":" + Value + "\n" + Description + "\n";
             return data;
         }
-
-        //test for type conversion
-        //public static explicit operator Stat(int i)
-        //{
-        //    Stat test = new Stat("boi", i);
-        //    return test;
-        //}
     }
 
     public interface ISavingThrows
     {
-        IStat Strength { get; set; }
-        IStat Intelligence { get; set; }
-        IStat Wisdom { get; set; }
-        IStat Charisma { get; set; }
-        IStat Constitution { get; set; }
-        IStat Dexterity { get; set; }
+        Stat Strength { get; set; }
+        Stat Intelligence { get; set; }
+        Stat Wisdom { get; set; }
+        Stat Charisma { get; set; }
+        Stat Constitution { get; set; }
+        Stat Dexterity { get; set; }
+        string ToString();
     }
-    public class CharacterStats : ISavingThrows
+
+    public class SavingThrows : ISavingThrows
     {
-        public IStat Charisma
+        Stat _Strength;
+        Stat _Intelligence;
+        Stat _Wisdom;
+        Stat _Charisma;
+        Stat _Constitution;
+        Stat _Dexterity;
+
+        public Stat Strength
         {
             get
             {
-                throw new NotImplementedException();
+
+                return _Strength;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _Strength = value as Stat;
             }
         }
 
-        public IStat Constitution
+        public Stat Intelligence
         {
             get
             {
-                throw new NotImplementedException();
+
+                return _Intelligence;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _Intelligence = value as Stat;
             }
         }
 
-        public IStat Dexterity
+        public Stat Wisdom
         {
             get
             {
-                throw new NotImplementedException();
+
+                return _Wisdom;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _Wisdom = value as Stat;
             }
         }
 
-        public IStat Intelligence
+        public Stat Charisma
         {
             get
             {
-                throw new NotImplementedException();
+                return _Charisma;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _Charisma = value as Stat;
             }
         }
 
-        public IStat Strength
+        public Stat Constitution
         {
             get
             {
-                throw new NotImplementedException();
+
+                return _Constitution;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _Constitution = value as Stat;
             }
         }
 
-        public IStat Wisdom
+        public Stat Dexterity
         {
             get
             {
-                throw new NotImplementedException();
+
+                return _Dexterity;
             }
 
             set
             {
-                throw new NotImplementedException();
+                _Dexterity = value as Stat;
             }
+        }
+        public override string ToString()
+        {
+            string data = Strength.Name + Strength.Value + "\n" + Intelligence.Name + Intelligence.Value
+                + "\n" + Wisdom.Name + Wisdom.Value + "\n" + Charisma.Name + Charisma.Value + "\n" + Constitution.Name +
+                Constitution.Value + "\n" + Dexterity.Name + Dexterity.Value;
+            return data;
         }
     }
-    public class Character : ISavingThrows
+
+    public class Character
     {
-        ISavingThrows SavingThrows { get; set; }
+        Random r = new Random();
+        public ISavingThrows SavingThrows { get; set; }
         public int ExperiencePoints { get; set; }
         public string CharacterName { get; set; }
         public int Level { get; set; }
 
-        public IStat Strength
-        {
-            get
-            {
-
-                return SavingThrows.Strength;
-            }
-
-            set
-            {
-                SavingThrows.Strength = value as Stat;
-            }
-        }
-
-        public IStat Intelligence
-        {
-            get
-            {
-
-                return SavingThrows.Intelligence;
-            }
-
-            set
-            {
-                SavingThrows.Intelligence = value as Stat;
-            }
-        }
-
-        public IStat Wisdom
-        {
-            get
-            {
-
-                return SavingThrows.Wisdom;
-            }
-
-            set
-            {
-                SavingThrows.Wisdom = value as Stat;
-            }
-        }
-
-        public IStat Charisma
-        {
-            get
-            {
-
-                return SavingThrows.Charisma;
-            }
-
-            set
-            {
-                SavingThrows.Charisma = value as Stat;
-            }
-        }
-
-        public IStat Constitution
-        {
-            get
-            {
-
-                return SavingThrows.Constitution;
-            }
-
-            set
-            {
-                SavingThrows.Constitution = value as Stat;
-            }
-        }
-
-        public IStat Dexterity
-        {
-            get
-            {
-
-                return SavingThrows.Dexterity;
-            }
-
-            set
-            {
-                SavingThrows.Dexterity = value as Stat;
-            }
-        }
-
         public void GenCharacter()
         {
             var c = new Character();
-            var stats = new CharacterStats();
+            var stats = new SavingThrows();
         }
 
         public override string ToString()
         {
             string data = "Name: " + CharacterName + "\n" +
                 "Level: " + Level + "\n" +
-                "Exp: " + ExperiencePoints + "\n" + "\n";
-            foreach (var stat in SavingThrows)
-            {
-                data += stat.Value.ToString();
-            }
+                "Exp: " + ExperiencePoints + "\n" +
+                SavingThrows.ToString();
             return data;
         }
     }

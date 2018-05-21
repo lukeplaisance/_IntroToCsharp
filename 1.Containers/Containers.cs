@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace _1.Containers
 {
     public interface IStat
@@ -51,7 +52,6 @@ namespace _1.Containers
         Stat _Charisma;
         Stat _Constitution;
         Stat _Dexterity;
-
         public Stat Strength
         {
             get

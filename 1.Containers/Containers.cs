@@ -161,7 +161,7 @@ namespace _1.Containers
         {
             string data = "Name: " + CharacterName + "\n" +
                 "Level: " + Level + "\n" +
-                "Exp: " + ExperiencePoints + "\n" +
+                "Exp: " + ExperiencePoints + "\n" + "\n" +
                 SavingThrows.ToString();
             return data;
         }

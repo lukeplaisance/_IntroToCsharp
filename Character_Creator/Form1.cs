@@ -18,29 +18,28 @@ namespace CharacterCreator
         public List<Job> JobList = new List<Job>();
         public Form1()
         {
-            Random r = new Random();
             InitializeComponent();
             RaceList = new List<Race>()
             {
-                new Human() {SavingThrows = new SavingThrows() { Charisma = new Stat("Cha: ", r.Next(1, 11)),
-                    Constitution = new Stat("Const: ", r.Next(1, 11)), Intelligence = new Stat("Int: ", r.Next(1, 11)),
-                    Strength = new Stat("Str: ", r.Next(1,11)), Dexterity = new Stat("Dex: ", r.Next(1, 11)),
-                    Wisdom = new Stat("Wis: ", r.Next(1, 11))}, CharacterName = "Human" , Level = 0, ExperiencePoints = 0},
+                new Human() {SavingThrows = new SavingThrows() { Charisma = new Stat("Charisma: ", r.Next(1, 11)),
+                    Constitution = new Stat("Constitution: ", r.Next(1, 11)), Intelligence = new Stat("Intelligence: ", r.Next(1, 11)),
+                    Strength = new Stat("Strength: ", r.Next(1,11)), Dexterity = new Stat("Dexterity: ", r.Next(1, 11)),
+                    Wisdom = new Stat("Wisdom: ", r.Next(1, 11))}, CharacterName = "Human" , Level = 0, ExperiencePoints = 0},
 
-                new Elf() {SavingThrows = new SavingThrows() { Charisma = new Stat("Cha: ", r.Next(1, 11)),
-                    Constitution = new Stat("Const: ", r.Next(1, 11)), Intelligence = new Stat("Int: ", r.Next(1, 11)),
-                    Strength = new Stat("Str: ", r.Next(1,11)), Dexterity = new Stat("Dex: ", r.Next(1, 11)),
-                    Wisdom = new Stat("Wis: ", r.Next(1, 11))}, CharacterName = "Elf" , Level = 0, ExperiencePoints = 0},
+                new Elf() {SavingThrows = new SavingThrows() { Charisma = new Stat("Charisma: ", r.Next(1, 11)),
+                    Constitution = new Stat("Constitution: ", r.Next(1, 11)), Intelligence = new Stat("Intelligence: ", r.Next(1, 11)),
+                    Strength = new Stat("Strength: ", r.Next(1,11)), Dexterity = new Stat("Dexterity: ", r.Next(1, 11)),
+                    Wisdom = new Stat("Wisdom: ", r.Next(1, 11))}, CharacterName = "Elf" , Level = 0, ExperiencePoints = 0},
 
-                new Ogre() {SavingThrows = new SavingThrows() { Charisma = new Stat("Cha: ", r.Next(1, 11)),
-                    Constitution = new Stat("Const: ", r.Next(1, 11)), Intelligence = new Stat("Int: ", r.Next(1, 11)),
-                    Strength = new Stat("Str: ", r.Next(1,11)), Dexterity = new Stat("Dex: ", r.Next(1, 11)),
-                    Wisdom = new Stat("Wis: ", r.Next(1, 11))}, CharacterName = "Ogre" , Level = 0, ExperiencePoints = 0},
+                new Ogre() {SavingThrows = new SavingThrows() { Charisma = new Stat("Charisma: ", r.Next(1, 11)),
+                    Constitution = new Stat("Constitution: ", r.Next(1, 11)), Intelligence = new Stat("Intelligence: ", r.Next(1, 11)),
+                    Strength = new Stat("Strength: ", r.Next(1,11)), Dexterity = new Stat("Dexterity: ", r.Next(1, 11)),
+                    Wisdom = new Stat("Wisdom: ", r.Next(1, 11))}, CharacterName = "Ogre" , Level = 0, ExperiencePoints = 0},
 
-                new Dwarf() {SavingThrows = new SavingThrows() { Charisma = new Stat("Cha: ", r.Next(1, 11)),
-                    Constitution = new Stat("Const: ", r.Next(1, 11)), Intelligence = new Stat("Int: ", r.Next(1, 11)),
-                    Strength = new Stat("Str: ", r.Next(1,11)), Dexterity = new Stat("Dex: ", r.Next(1, 11)),
-                    Wisdom = new Stat("Wis: ", r.Next(1, 11))}, CharacterName = "Dwarf" , Level = 0, ExperiencePoints = 0}
+                new Dwarf() {SavingThrows = new SavingThrows() { Charisma = new Stat("Charisma: ", r.Next(1, 11)),
+                    Constitution = new Stat("Constitution: ", r.Next(1, 11)), Intelligence = new Stat("Intelligence: ", r.Next(1, 11)),
+                    Strength = new Stat("Strength: ", r.Next(1,11)), Dexterity = new Stat("Dexterity: ", r.Next(1, 11)),
+                    Wisdom = new Stat("Wisdom: ", r.Next(1, 11))}, CharacterName = "Dwarf" , Level = 0, ExperiencePoints = 0}
             };
             JobList = new List<Job>()
             {
@@ -70,11 +69,21 @@ namespace CharacterCreator
 
         private void JobBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             foreach (var item in JobList)
             {
                 if (item.Name == JobBox.Text)
                 {
-                    richTextBox1.Text = item.ToString();
+                    label6.Text = item.ToString();
+                }
+                if(item.Name == "Assassin")
+                {
+                    item.SavingThrows.Strength.Value += r.Next(0, 5);
+                    item.SavingThrows.Intelligence.Value += r.Next(0, 5);
+                    item.SavingThrows.Wisdom.Value += r.Next(0, 5);
+                    item.SavingThrows.Charisma.Value += r.Next(0, 5);
+                    item.SavingThrows.Constitution.Value += r.Next(0, 5);
+                    item.SavingThrows.Dexterity.Value += r.Next(0, 5);
                 }
             }
         }

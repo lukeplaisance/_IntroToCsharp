@@ -13,6 +13,7 @@ namespace CharacterCreator
     {
         int _value;
         public int Value { get; set; }
+        public string StatToModify;
     }
 
     public class Race : Character
@@ -23,6 +24,7 @@ namespace CharacterCreator
             Random r = new Random();
             if (Name == "Assassin")
             {
+                var mod = new Modifier { Value = r.Next(0, 5), StatToModify = StatNames.Intelligence.ToString()+": "};
                 SavingThrows.Intelligence.Value = r.Next(0, 5);
                 SavingThrows.Charisma.Value = r.Next(0, 5);
                 SavingThrows.Dexterity.Value = r.Next(0, 5);

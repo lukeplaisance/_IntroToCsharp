@@ -167,11 +167,4 @@ namespace _1.Containers
         }
     }
 
-    class Program
-    {
-        static void Main(string[] args)
-        {
-
-        }
-    }
 }

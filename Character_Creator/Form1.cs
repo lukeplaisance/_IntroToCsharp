@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _1.Containers;
+using Newtonsoft.Json;
 
 namespace CharacterCreator
 {
@@ -32,6 +33,7 @@ namespace CharacterCreator
             InitializeComponent();
             RaceList = new List<Race>()
             {
+                #region
                 new Human()
                 {
                     CharacterName = "Human" ,
@@ -47,22 +49,53 @@ namespace CharacterCreator
                         Wisdom = new Stat("Wisdom", r.Next(1, 11))
                     }
                 },
-
-                new Elf() {SavingThrows = new SavingThrows() { Charisma = new Stat("Charisma", r.Next(1, 11)),
-                    Constitution = new Stat("Constitution", r.Next(1, 11)), Intelligence = new Stat("Intelligence", r.Next(1, 11)),
-                    Strength = new Stat("Strength", r.Next(1,11)), Dexterity = new Stat("Dexterity", r.Next(1, 11)),
-                    Wisdom = new Stat("Wisdom", r.Next(1, 11))}, CharacterName = "Elf" , Level = 0, ExperiencePoints = 0},
-
-                new Ogre() {SavingThrows = new SavingThrows() { Charisma = new Stat("Charisma", r.Next(1, 11)),
-                    Constitution = new Stat("Constitution", r.Next(1, 11)), Intelligence = new Stat("Intelligence", r.Next(1, 11)),
-                    Strength = new Stat("Strength", r.Next(1,11)), Dexterity = new Stat("Dexterity", r.Next(1, 11)),
-                    Wisdom = new Stat("Wisdom", r.Next(1, 11))}, CharacterName = "Ogre" , Level = 0, ExperiencePoints = 0},
-
-                new Dwarf() {SavingThrows = new SavingThrows() { Charisma = new Stat("Charisma", r.Next(1, 11)),
-                    Constitution = new Stat("Constitution", r.Next(1, 11)), Intelligence = new Stat("Intelligence", r.Next(1, 11)),
-                    Strength = new Stat("Strength", r.Next(1,11)), Dexterity = new Stat("Dexterity", r.Next(1, 11)),
-                    Wisdom = new Stat("Wisdom", r.Next(1, 11))}, CharacterName = "Dwarf" , Level = 0, ExperiencePoints = 0}
+                new Elf()
+                {
+                    CharacterName = "Elf" ,
+                    Level = 0,
+                    ExperiencePoints = 0,
+                    SavingThrows = new SavingThrows()
+                    {
+                        Charisma = new Stat("Charisma", r.Next(1, 11)),
+                        Constitution = new Stat("Constitution", r.Next(1, 11)),
+                        Intelligence = new Stat("Intelligence", r.Next(1, 11)),
+                        Strength = new Stat("Strength", r.Next(1,11)),
+                        Dexterity = new Stat("Dexterity", r.Next(1, 11)),
+                        Wisdom = new Stat("Wisdom", r.Next(1, 11))
+                    }
+                },
+                new Ogre()
+                {
+                    CharacterName = "Ogre" ,
+                    Level = 0,
+                    ExperiencePoints = 0,
+                    SavingThrows = new SavingThrows()
+                    {
+                        Charisma = new Stat("Charisma", r.Next(1, 11)),
+                        Constitution = new Stat("Constitution", r.Next(1, 11)),
+                        Intelligence = new Stat("Intelligence", r.Next(1, 11)),
+                        Strength = new Stat("Strength", r.Next(1,11)),
+                        Dexterity = new Stat("Dexterity", r.Next(1, 11)),
+                        Wisdom = new Stat("Wisdom", r.Next(1, 11))
+                    }
+                },
+                new Dwarf()
+                {
+                    CharacterName = "Dwarf" ,
+                    Level = 0,
+                    ExperiencePoints = 0,
+                    SavingThrows = new SavingThrows()
+                    {
+                        Charisma = new Stat("Charisma", r.Next(1, 11)),
+                        Constitution = new Stat("Constitution", r.Next(1, 11)),
+                        Intelligence = new Stat("Intelligence", r.Next(1, 11)),
+                        Strength = new Stat("Strength", r.Next(1,11)),
+                        Dexterity = new Stat("Dexterity", r.Next(1, 11)),
+                        Wisdom = new Stat("Wisdom", r.Next(1, 11))
+                    }
+                }
             };
+            #endregion
             JobList = new List<Job>()
             {
                 new Assassin() {Name = "Assassin"},
@@ -85,6 +118,7 @@ namespace CharacterCreator
                 if (item.CharacterName == RaceBox.Text)
                 {
                     richTextBox1.Text = item.ToString();
+                    pictureBox1.Image = Image.FromFile(Environment.CurrentDirectory + @"\Race Pictures\" + item.CharacterName + ".png");
                 }
                 item.JobStat();
             }
@@ -115,7 +149,16 @@ namespace CharacterCreator
             {
                 JobBox.Items.Add(item.Name);
             }
+        }
 
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            var path = System.IO.Path.Combine(Environment.CurrentDirectory, "Race_List.json");
+            var characterPath = System.IO.Path.Combine(Environment.CurrentDirectory, "Selected_Character.json");
+            var Race_root = JsonConvert.SerializeObject(RaceList);
+            //var Char_root = JsonConvert.SerializeObject(richTextBox1.);
+            System.IO.File.WriteAllText(path, Race_root);
+            System.IO.File.WriteAllText(characterPath, Char_root);
         }
     }
 }

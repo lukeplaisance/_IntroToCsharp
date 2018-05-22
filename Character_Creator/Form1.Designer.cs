@@ -40,6 +40,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,9 +81,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pictureBox1.Location = new System.Drawing.Point(232, 43);
+            this.pictureBox1.Location = new System.Drawing.Point(211, 29);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 203);
+            this.pictureBox1.Size = new System.Drawing.Size(174, 253);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
@@ -124,9 +126,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 52);
+            this.button1.Location = new System.Drawing.Point(12, 52);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 37);
+            this.button1.Size = new System.Drawing.Size(165, 44);
             this.button1.TabIndex = 9;
             this.button1.Text = "GenCharacter";
             this.button1.UseVisualStyleBackColor = true;
@@ -135,7 +137,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(229, 29);
+            this.label5.Location = new System.Drawing.Point(212, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 10;
@@ -143,16 +145,29 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(497, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 11;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(391, 288);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(214, 30);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Save Character";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(617, 318);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
@@ -188,6 +203,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button2;
     }
 }
 

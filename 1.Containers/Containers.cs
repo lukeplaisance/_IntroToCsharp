@@ -136,9 +136,12 @@ namespace _1.Containers
         }
         public override string ToString()
         {
-            string data = Strength.Name + Strength.Value + "\n" + Intelligence.Name + Intelligence.Value
-                + "\n" + Wisdom.Name + Wisdom.Value + "\n" + Charisma.Name + Charisma.Value + "\n" + Constitution.Name +
-                Constitution.Value + "\n" + Dexterity.Name + Dexterity.Value;
+            string data = Strength.Name + " : " +  Strength.Value + "\n" +
+                Intelligence.Name + " : " +  Intelligence.Value + "\n" +
+                Wisdom.Name + " : " + Wisdom.Value + "\n" +
+                Charisma.Name + " : " + Charisma.Value + "\n" +
+                Constitution.Name + " : " + Constitution.Value + "\n" +
+                Dexterity.Name + " : " + Dexterity.Value;
             return data;
         }
     }
@@ -164,6 +167,12 @@ namespace _1.Containers
                 "Exp: " + ExperiencePoints + "\n" + "\n" +
                 SavingThrows.ToString();
             return data;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
         }
     }
 

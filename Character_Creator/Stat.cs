@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace _1.Containers
+namespace Character_Creator
 {
     public interface IStat
     {
@@ -32,29 +30,4 @@ namespace _1.Containers
             return data;
         }
     }
-    public class Character
-    {
-        public int ExperiencePoints { get; set; }
-        public string CharacterName { get; set; }
-        public int Level { get; set; }
-        public void GenCharacter()
-        {
-            var c = new Character();
-        }
-
-        public override string ToString()
-        {
-            string data = "Name: " + CharacterName + "\n" +
-                "Level: " + Level + "\n" +
-                "Exp: " + ExperiencePoints + "\n" + "\n";
-            return data;
-        }
-    }
-    class Program
-    {
-        static void Main(string[] args)
-        {
-        }
-    }
-
 }

@@ -1,4 +1,4 @@
-﻿namespace CharacterCreator
+﻿namespace Character_Creator
 {
     partial class Form1
     {
@@ -54,7 +54,7 @@
             // RaceBox
             // 
             this.RaceBox.FormattingEnabled = true;
-            this.RaceBox.Location = new System.Drawing.Point(12, 123);
+            this.RaceBox.Location = new System.Drawing.Point(12, 63);
             this.RaceBox.Name = "RaceBox";
             this.RaceBox.Size = new System.Drawing.Size(165, 21);
             this.RaceBox.TabIndex = 1;
@@ -63,7 +63,7 @@
             // JobBox
             // 
             this.JobBox.FormattingEnabled = true;
-            this.JobBox.Location = new System.Drawing.Point(15, 225);
+            this.JobBox.Location = new System.Drawing.Point(15, 158);
             this.JobBox.Name = "JobBox";
             this.JobBox.Size = new System.Drawing.Size(165, 21);
             this.JobBox.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(391, 26);
+            this.richTextBox1.Location = new System.Drawing.Point(391, 29);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(214, 256);
@@ -91,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 107);
+            this.label1.Location = new System.Drawing.Point(12, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 5;
@@ -100,7 +100,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 209);
+            this.label2.Location = new System.Drawing.Point(12, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 13);
             this.label2.TabIndex = 6;
@@ -126,7 +126,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 52);
+            this.button1.Location = new System.Drawing.Point(12, 262);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 44);
             this.button1.TabIndex = 9;
@@ -146,7 +146,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(497, 29);
+            this.label6.Location = new System.Drawing.Point(547, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 11;

@@ -8,23 +8,37 @@ namespace Character_Creator
 {
     public interface ISavingThrow
     {
+        //property for the strength stat
         Stat Strength { get; set; }
+        //property for the Intelligence stat
         Stat Intelligence { get; set; }
+        //property for the Wisdom stat
         Stat Wisdom { get; set; }
+        //Property for the Charisma stat
         Stat Charisma { get; set; }
+        //property for the Constitution stat
         Stat Constitution { get; set; }
+        //property for the Dexterity stat
         Stat Dexterity { get; set; }
+        //overrides ToString()
         string ToString();
     }
 
     public class SavingThrow : ISavingThrow
     {
+        //Backing field for the Strength stat
         Stat _Strength;
+        //Backing field for the Intelligence sta
         Stat _Intelligence;
+        //Backing field for the Wisdom stat
         Stat _Wisdom;
+        //Backing field for the Charisma stat
         Stat _Charisma;
+        //Backing field for the Constitution stat
         Stat _Constitution;
+        //Backing field for the Dexterity stat
         Stat _Dexterity;
+        //property for Strength from the Stat class
         public Stat Strength
         {
             get
@@ -39,6 +53,7 @@ namespace Character_Creator
             }
         }
 
+        //property for Intelligence from the Stat class
         public Stat Intelligence
         {
             get
@@ -53,6 +68,7 @@ namespace Character_Creator
             }
         }
 
+        //property for Wisdom from the Stat class
         public Stat Wisdom
         {
             get
@@ -67,6 +83,7 @@ namespace Character_Creator
             }
         }
 
+        //property for Charisma from the Stat class
         public Stat Charisma
         {
             get
@@ -80,6 +97,7 @@ namespace Character_Creator
             }
         }
 
+        //property for Constitution from the Stat class
         public Stat Constitution
         {
             get
@@ -94,6 +112,7 @@ namespace Character_Creator
             }
         }
 
+        //property for Dexterity from the Stat class
         public Stat Dexterity
         {
             get
@@ -107,6 +126,13 @@ namespace Character_Creator
                 _Dexterity = value as Stat;
             }
         }
+
+        //Prototype : public override string ToString()
+        //Argument : none
+        //Description : overrides the ToString() operator to set the name
+        //Precondition : an instance of the SavingThrow class
+        //Postcondition : overrides the ToString() operator to set the name
+        //Protection Level : Public
         public override string ToString()
         {
             string data = Strength.Name + " : " + Strength.Value + "\n" +

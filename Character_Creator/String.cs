@@ -14,7 +14,7 @@ namespace Character_Creator
         public static readonly string OGRE = "Ogre";
         public static readonly string DWARF = "Dwarf";
         //Jobs
-        public static readonly string ASSSASSIN = "Assassin";
+        public static readonly string ASSASSIN = "Assassin";
         public static readonly string KNIGHT = "Knight";
         public static readonly string MAGE = "Mage";
         public static readonly string HEALER = "Healer";

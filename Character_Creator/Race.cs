@@ -9,8 +9,10 @@ namespace Character_Creator
     public class Race
     {
         public string Name { get; set; }
-
-        public Job CurrentJob { get; set; }
+        public Race(string name)
+        {
+            Name = name;
+        }
         public override string ToString()
         {
             var data = Name + "\n";
@@ -19,18 +21,38 @@ namespace Character_Creator
     }
     public class Human : Race
     {
+        public Human(string name) : base(name)
+        {
+            Name = name;
+        }
+
         public string Name { get; set; }
     }
     public class Elf : Race
     {
+        public Elf(string name) : base(name)
+        {
+            Name = name;
+        }
+
         public string Name { get; set; }
     }
     public class Ogre : Race
     {
+        public Ogre(string name) : base(name)
+        {
+            Name = name;
+        }
+
         public string Name { get; set; }
     }
     public class Dwarf : Race
     {
+        public Dwarf(string name) : base(name)
+        {
+            Name = name;
+        }
+
         public string Name { get; set; }
     }
 }

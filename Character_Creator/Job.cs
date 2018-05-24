@@ -10,6 +10,7 @@ namespace Character_Creator
     {
         public string Name { get; set; }
         public List<SavingThrow> SavingThrows = new List<SavingThrow>();
+        Random r = new Random();
 
         //Prototype : public override string ToString()
         //Argument : none
@@ -17,9 +18,16 @@ namespace Character_Creator
         //Precondition : an instance of the Job class
         //Postcondition : overrides the ToString() operator to set the name
         //Protection Level : Public
+        public Job(string name)
+        {
+            Name = name;
+            GenStats();
+        }
+
+
         public override string ToString()
         {
-            var data = "Name: " + Name + "\nStats: " + "\n";
+            var data =  Name + "\nStats: " +  "\n" + "\n";
             foreach (var stat in SavingThrows)
             {
                 data += stat.ToString();
@@ -28,7 +36,7 @@ namespace Character_Creator
         }
         public void GenStats()
         {
-            Random r = new Random();
+
             SavingThrow newStats = new SavingThrow()
             {
                 Charisma = new Stat("Charisma", r.Next(1, 11)),
@@ -43,22 +51,32 @@ namespace Character_Creator
     }
     public class Assassin : Job
     {
-
+        public Assassin(string name) : base(name)
+        {
+        }
     }
     public class Knight : Job
     {
-
+        public Knight(string name) : base(name)
+        {
+        }
     }
     public class Mage : Job
     {
-
+        public Mage(string name) : base(name)
+        {
+        }
     }
     public class Healer : Job
     {
-
+        public Healer(string name) : base(name)
+        {
+        }
     }
     public class SharpShooter : Job
     {
-
+        public SharpShooter(string name) : base(name)
+        {
+        }
     }
 }

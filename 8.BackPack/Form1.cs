@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
+
 
 namespace _8.BackPack
 {
@@ -49,7 +43,7 @@ namespace _8.BackPack
         private void SaveButton_Click(object sender, EventArgs e)
         {
             var path = System.IO.Path.Combine(Environment.CurrentDirectory, "BackPack.json");
-            var backpack_root = JsonConvert.SerializeObject(BackPack.packables);
+            //var backpack_root = JsonConvert.SerializeObject(BackPack.packables);
             System.IO.File.WriteAllText(path, backpack_root);
         }
     }

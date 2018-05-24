@@ -8,16 +8,27 @@ namespace Character_Creator
 {
     public class Character
     {
-        public string Name { get; set; }
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
         public Job m_job;
         public Race m_race;
-        List<ISavingThrow> SavingThrows = new List<ISavingThrow>();
 
-        Character(string name, Job job, Race race)
+
+        public Character(string name, Job job, Race race)
         {
             Name = name;
             m_job = job;
             m_race = race;
+        }
+        public override string ToString()
+        {
+            var data = "Name: " + Name +
+                "\nJob: " + m_job.ToString() +"\nRace: " + m_race.ToString();
+            return data;
         }
     }
 }
